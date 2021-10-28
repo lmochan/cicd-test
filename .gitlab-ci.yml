@@ -1,9 +1,10 @@
 default:
   image: docker:stable
+
 build-job:
   stage: build
   script:
-    - sudo docker build -t lchanif/cicd-test .
+    - docker build -t lchanif/cicd-test .
 
 test-job:
   stage: test
