@@ -6,7 +6,7 @@ build-job:
   script:
     - sudo docker build -t lchanif/cicd-test .
 
-fake-test:
+test-fake:
   stage: test
   script:
     - echo "This job tests something"
