@@ -1,5 +1,5 @@
 default:
-  image: centos:latest
+  image: docker:stable
 build-job:
   stage: build
   script:
