@@ -1,17 +1,16 @@
 default:
   image: centos:latest
-
 build-job:
   stage: build
   script:
     - sudo docker build -t lchanif/cicd-test .
 
-test-fake:
+fake-test:
   stage: test
   script:
     - echo "This job tests something"
 
-deploy-dockerimage:
+deploy:
   stage: Push to Docker Hub
   only:
     - master
