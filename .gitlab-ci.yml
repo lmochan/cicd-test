@@ -5,12 +5,12 @@ build-job:
   script:
     - sudo docker build -t lchanif/cicd-test .
 
-fake-test:
+test-job:
   stage: test
   script:
     - echo "This job tests something"
 
-deploy:
+deploy-prod:
   stage: Push to Docker Hub
   only:
     - master
