@@ -11,7 +11,7 @@ test-job:
     - echo "This job tests something"
 
 deploy-prod:
-  stage: Push to Docker Hub
+  stage: deploy
   only:
     - master
   script:
