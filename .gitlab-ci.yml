@@ -6,16 +6,19 @@ build-job:
   stage: build
   script:
     - docker build -t lchanif/cicd-test .
+    - echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USER" --password-stdin
+    - docker push lchanif/cicd-test
 
 test-job:
   stage: test
   script:
-    - echo "This job tests something"
+    - docker pull lchanif/cicd-test:latest
+    - docker build lchanif/cicd-test:latest
 
-deploy-prod:
-  stage: deploy
-  only:
-    - main
-  script:
-    - echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USER" --password-stdin
-    - docker push lchanif/cicd-test
+#deploy-prod:
+#  stage: deploy
+#  only:
+#    - main
+#  script:
+#    - echo "$DOCKERHUB_PASS" | docker login -u "$DOCKERHUB_USER" --password-stdin
+#    - docker push lchanif/cicd-test
