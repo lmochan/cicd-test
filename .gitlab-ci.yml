@@ -1,10 +1,10 @@
-default:
-  image: docker:stable
+image: docker:latest
+services:
+  - docker:dind
 
 build-job:
   stage: build
   script:
-    - systemctl start docker
     - docker build -t lchanif/cicd-test .
 
 test-job:
